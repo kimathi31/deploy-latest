@@ -24,13 +24,17 @@ def deploy(request):
         #decode image from bytes
         encoded_img = im.open(image)
                    
-        path_hubconfig = "deploynew/detectapi/yolov5"
+        #path_hubconfig = "deploynew/detectapi/yolov5"
         path_weightfile = "deploynew/detectapi/model/firstmodelsimilarfeatures.pt"
         path_weightfile2 = "delpoynew/detectapi/model/latestversion2.pt"
                         
         #model = torch.hub.load('ultralytics/yolov5', 'custom',
         #                        path=path_weightfile,verbose=False)
-        model2 = torch.hub.load(path_hubconfig,'custom',source = 'local',path=path_weightfile2,verbose=False)   
+        #model2 = torch.hub.load(path_hubconfig,'custom',source = 'local',path=path_weightfile2,verbose=False) 
+        
+        model2 = torch.hub.load('ultralytics/yolov5','custom',path=path_weightfile2,verbose=False) 
+
+        
         
         results = model2(encoded_img, size=608)
         results.render()        
@@ -49,7 +53,8 @@ def deploy(request):
         
      
         if len(results)==0:
-            model = torch.hub.load(path_hubconfig,'custom',source ='local',path=path_weightfile,verbose=False)
+            #model = torch.hub.load(path_hubconfig,'custom',source ='local',path=path_weightfile,verbose=False)
+            model = torch.hub.load('ultralytics/yolov5','custom',path=path_weightfile,verbose=False) 
             results2 = model(encoded_img,size=640)
             results2.render() 
             for img in results2.ims:
