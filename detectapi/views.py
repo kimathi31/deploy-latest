@@ -32,7 +32,7 @@ def deploy(request):
         #                        path=path_weightfile,verbose=False)
         #model2 = torch.hub.load(path_hubconfig,'custom',source = 'local',path=path_weightfile2,verbose=False) 
         
-        model2 = torch.hub.load('ultralytics/yolov5','custom',path=path_weightfile2,verbose=False) 
+        model2 =torch.hub.load('ultralytics/yolov5','custom',path=path_weightfile2,verbose=False) 
 
         
         
