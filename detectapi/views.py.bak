@@ -24,19 +24,19 @@ def deploy(request):
         #decode image from bytes
         encoded_img = im.open(image)
                    
-        #path_hubconfig = "C:/Users/bkimathi/Desktop/deploy/detectapi/yolov5"
-        path_weightfile = "C:/Users/bkimathi/Desktop/deploy/detectapi/model/firstmodelsimilarfeatures.pt"
-        path_weightfile2 = "C:/Users/bkimathi/Desktop/deploy/detectapi/model/latestmodel2.pt"
+        path_hubconfig = "deploy-latest/yolov5"
+        path_weightfile = "deploy-latest/detectapi/model/firstmodelsimilarfeatures.pt"
+        path_weightfile2 = "deploy-latest/detectapi/model/latestversion2.pt"
                         
         #model = torch.hub.load('ultralytics/yolov5', 'custom',
         #                        path=path_weightfile,verbose=False)
-        model2 = torch.hub.load('ultralytics/yolov5','custom',path=path_weightfile2,verbose=False)   
+        model2 = torch.hub.load(path_hubconfig,'custom',source = 'local',path=path_weightfile2,verbose=False)   
         
         results = model2(encoded_img, size=608)
         results.render()        
         
         #save base64
-        for img in results.imgs:
+        for img in results.ims:
             img_base64 = im.fromarray(img)
             byte = BytesIO()
             img_base64.save(byte,'jpeg')
@@ -49,11 +49,10 @@ def deploy(request):
         
      
         if len(results)==0:
-            model = torch.hub.load('ultralytics/yolov5', 'custom',
-                                path=path_weightfile,verbose=False)
+            model = torch.hub.load(path_hubconfig,'custom',source ='local',path=path_weightfile,verbose=False)
             results2 = model(encoded_img,size=640)
             results2.render() 
-            for img in results2.imgs:
+            for img in results2.ims:
                 img_base64 = im.fromarray(img)
                 byte = BytesIO()
                 img_base64.save(byte,'jpeg')             

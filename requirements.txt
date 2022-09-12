@@ -1,5 +1,4 @@
 stack-data==0.4.0
-tensorflow-io-gcs-filesystem==0.25.0
 termcolor==1.1.0
 tf-estimator-nightly==2.8.0.dev2021122109
 thop==0.1.1.post2207130030
@@ -86,7 +85,7 @@ google-auth-oauthlib==0.4.6
 google-pasta==0.2.0
 grpcio==1.46.0
 gunicorn==20.1.0
-h5py==3.6.0
+
 idna==3.3
 ipython==8.4.0
 jedi==0.18.1
