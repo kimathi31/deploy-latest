@@ -24,9 +24,9 @@ def deploy(request):
         #decode image from bytes
         encoded_img = im.open(image)
                    
-        path_hubconfig = "deploy-latest/detectapi/yolov5"
-        path_weightfile = "deploy-latest/detectapi/model/firstmodelsimilarfeatures.pt"
-        path_weightfile2 = "deploy-latest/detectapi/model/latestversion2.pt"
+        path_hubconfig = "yolov5"
+        path_weightfile = "firstmodelsimilarfeatures.pt"
+        path_weightfile2 = "latestversion2.pt"
                         
         #model = torch.hub.load('ultralytics/yolov5', 'custom',
         #                        path=path_weightfile,verbose=False)
