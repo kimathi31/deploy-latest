@@ -34,12 +34,8 @@ mypy-extensions==0.4.3
 numpy==1.22.3
 
 pandas==1.4.2
-pathspec==0.9.0
-pathtools==0.1.2
 
 Pillow==9.1.0
-platformdirs==2.5.2
-promise==2.3
 
 
 psutil==5.9.1
@@ -56,12 +52,8 @@ django-cors-headers==3.13.0
 djangorestframework==3.13.1
 
 executing==0.10.0
-face==20.1.1
-flatbuffers==2.0
 glom==22.1.0
-google-auth==2.6.6
-google-auth-oauthlib==0.4.6
-google-pasta==0.2.0
+
 
 gunicorn==20.1.0
 
